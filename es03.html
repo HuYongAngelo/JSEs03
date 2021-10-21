@@ -11,14 +11,61 @@
         <table style="border-style: double", id="table1">
             <tr>
                 <th>N1</th>
+                <th>Operazione</th>
+                <th>N2</th>
+                <th>Risultato</th>
             </tr>
         </table>
+        Inserire numero 1 <input type="number" id="input1">
+        numero 2 <input type="number" id="input2"><br>
+        <button class='add'> + </button><button class='read'> Storage </button>
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        
         <script>
-            $("#table1").append($("<div></div>"));
-        </script><br>
-        Inserire un numero <input type="text"><br>
-        <button id = "+">+</button>
+            storage = window.localStorage;
+            i = 0;
+        </script>
+        
+        <script>
+            $(".add")
+            .click(function() {
+                somma = parseInt($("#input1").val())+parseInt($("#input2").val());
+
+                tRow="<tr><td>"+$("#input1").val()+"</td><td> + </td><td>"+$("#input2").val()+"</td><td>"+somma+"</td></tr>";
+                tBody=$("table tbody");
+                tBody.append(tRow);
+
+                storage.setItem(i, $("#input1").val()+"+"+$("#input2").val()+"="+somma);
+                i++;
+
+                $("#input1").val("");
+                $("#input2").val("");
+            });
+        </script>
+
+        <script>
+            $(".read")
+            .click(function() {
+                storageLenght=JSON.parse(JSON.stringify(storage));
+                console.log(storageLenght);
+            });
+        </script>
+
+        <style>
+            table {
+                margin: 25px 0;
+                width: 20px;
+            }
+
+            table th, table td {
+                padding: 10px;
+                text-align: center;
+            }
+
+            table, th, td {
+                border: 1px solid;
+            }
+        </style>
     </body>
 </htmls>
