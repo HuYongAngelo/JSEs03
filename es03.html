@@ -6,70 +6,34 @@
         <h1>JS Es 03</h1>
         <h2>Simple calculator with dynamic rendering and access to local storage</h2>
         
-        <div>CALCOLATRICE</div><br>
+        <div>CALCULATOR</div><br>
         
         <table style="border-style: double", id="table1">
             <tr>
                 <th>N1</th>
-                <th>Operazione</th>
+                <th>Mark</th>
                 <th>N2</th>
-                <th>Risultato</th>
+                <th>Result</th>
             </tr>
         </table>
-        Inserire numero 1 <input type="number" id="input1">
-        numero 2 <input type="number" id="input2"><br>
-        <button class='add'> + </button>
-        <button class='subtract'> - </button>
-        <button class='multiplication'> * </button>
-        <button class='division'> / </button><br>
-        <button class='read'> Storage </button>
+        <input type="text" id="input1" placeholder="First number">
+        <input type="text" id="input2" placeholder="Second number"><br><br>
+        <button id='add' value="+"> + </button>
+        <button id='substract' value="-"> - </button>
+        <button id='multiply' value="*"> * </button>
+        <button id='divide' value="/"> / </button><br>
+        <button id='read'> Storage </button>
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="es03.js"></script>
         
         <script>
             storage = window.localStorage;
             i = 0;
         </script>
-        
-        <script>
-            $(".add")
-            .click(function() {
-                var n1 = parseInt($("#input1").val());
-                var n2 = parseInt($("#input2").val());
-                
-                addition = n1+n2;
-
-                tRow="<tr><td>"+$("#input1").val()+"</td><td> + </td><td>"+$("#input2").val()+"</td><td>"+addition+"</td></tr>";
-                tBody=$("table tbody");
-                tBody.append(tRow);
-
-                storage.setItem(i, $("#input1").val()+"+"+$("#input2").val()+"="+addition);
-                i++;
-
-                $("#input1").val("");
-                $("#input2").val("");
-            });
-        </script>
 
         <script>
-            $(".subtract")
-            .click(function() {
-                subtraction = n1-n2;
-
-                tRow="<tr><td>"+$("#input1").val()+"</td><td> + </td><td>"+$("#input2").val()+"</td><td>"+subtraction+"</td></tr>";
-                tBody=$("table tbody");
-                tBody.append(tRow);
-
-                storage.setItem(i, $("#input1").val()+"+"+$("#input2").val()+"="+somma);
-                i++;
-
-                $("#input1").val("");
-                $("#input2").val("");
-            });
-        </script>
-
-        <script>
-            $(".read")
+            $("#read")
             .click(function() {
                 storageLenght=JSON.parse(JSON.stringify(storage));
                 console.log(storageLenght);
