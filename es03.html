@@ -1,6 +1,14 @@
 <htmls>
     <head>
         <title>JS Es 03</title>
+
+        <script>
+            storage = window.localStorage;
+            if (i!=0) {
+                var i=0;
+            }
+            var a=0;
+        </script>
     </head>
     <body>
         <h1>JS Es 03</h1>
@@ -26,16 +34,16 @@
 
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="es03.js"></script>
-        
-        <script>
-            storage = window.localStorage;
-            i = 0;
-        </script>
 
         <script>
             $("#read")
             .click(function() {
-                storageLenght=JSON.parse(JSON.stringify(storage));
+                while (a<10) {
+                    storageLenght=storage.getItem(a);
+                    $("#table1").append(storageLenght);
+                    a++;
+                }
+                
                 console.log(storageLenght);
             });
         </script>

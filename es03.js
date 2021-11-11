@@ -98,10 +98,9 @@ $("button").click(function() {
 
         tRow="<tr><td>"+input1.val()+"</td><td>"+sign+"</td><td>"+input2.val()+"</td><td>"+result+"</td><td><button id='delete'>DELETE</button></td></tr>";
         $("#table1").append(tRow);
-        storage.setItem(i, input1.val()+sign+input2.val()+"="+result);
-        i++;
+        storage.setItem(i, tRow);
+        i++;        
     }
-
     input1.val("");
     input2.val("");
 });
