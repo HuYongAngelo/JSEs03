@@ -71,6 +71,12 @@
 //     input2.val("");
 // });
 
+//localStorage.clear();
+
+$("#table1").append(localStorage.getItem("tabella"));
+
+var tableArray = [];
+
 $("button").click(function() {
     var sign = $(this).val();
 
@@ -95,11 +101,13 @@ $("button").click(function() {
                 result = (parseInt(input1.val()) / parseInt(input2.val()));
                 break;
         }
-
+        
         tRow="<tr><td>"+input1.val()+"</td><td>"+sign+"</td><td>"+input2.val()+"</td><td>"+result+"</td><td><button id='delete'>DELETE</button></td></tr>";
         $("#table1").append(tRow);
-        storage.setItem(i, tRow);
-        i++;        
+
+        tabella = localStorage.getItem("tabella");
+        localStorage.setItem("tabella", tabella + tRow);
+        i++;
     }
     input1.val("");
     input2.val("");
